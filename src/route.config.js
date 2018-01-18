@@ -2,11 +2,69 @@ import createPage from './services/createPage';
 
 var pages = [];
 
-[1, 2, 3, 4, 5].forEach(i => {
-    pages.push(createPage(i, 0, 'page' + i, 'page' + i));
-    [1, 2, 3, 4].forEach(j => {
-        pages.push(createPage(i * 100 + j, i, 'page' + i + '0' + j, 'page' + i + '0' + j));
-    })
+// [1, 2, 3, 4, 5].forEach(i => {
+//     pages.push(createPage(i, 0, 'page' + i, 'page' + i));
+//     [1, 2, 3, 4].forEach(j => {
+//         pages.push(createPage(i * 100 + j, i, 'page' + i + '0' + j, 'page' + i + '0' + j));
+//     })
+// });
+
+// #region 导航菜单
+var navbars = [
+    {
+        id: 1,
+        pid:0,
+        page: 'system',
+        title: '系统管理',
+        sort: 10
+    },
+    {
+        id: 2,
+        pid:0,
+        page: 'person',
+        title: '个人中心',
+        sort: 20
+    },
+    {
+        id: 3,
+        pid:0,
+        page: 'chance',
+        title: '机会管理',
+        sort: 30
+    },
+    {
+        id: 4,
+        pid:0,
+        page: 'project',
+        title: '项目管理',
+        sort: 40
+    },
+    {
+        id: 5,
+        pid:0,
+        page: 'dayreport',
+        title: '日报管理',
+        sort: 50
+    },
+    {
+        id: 6,
+        pid:5,
+        page: 'page101',
+        title: '日报填写',
+        sort: 10
+    },
+    {
+        id: 7,
+        pid:5,
+        page: 'dayreportadd',
+        title: '日报审批',
+        sort: 10
+    }
+];
+// #endregion
+
+navbars.forEach(n=> {
+    pages.push(createPage(n.id,n.pid,n.page,n.title));
 });
 
 pages.push(createPage(0, 1, 'home', '首页'));

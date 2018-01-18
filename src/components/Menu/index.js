@@ -7,7 +7,9 @@ var submenuArr = {};
 menus.forEach((m) => {
     submenuArr[m.id] = submenus.filter(s => s.pid === m.id && s.id !== 0);
 });
-var selectedSubMenuItem = submenuArr[1][0];
+// 修改原有固定下标获取数据 pid in dir 的错误
+// var selectedSubMenuItem = submenuArr[1][0];
+var selectedSubMenuItem = submenus.filter(p=> p.pid !== 0)[0]
 
 component('ms-menu', {
     template: require('./index.html'),
